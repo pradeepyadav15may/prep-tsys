@@ -34,12 +34,13 @@ export default class StockData extends Component {
             response.status);
           return;
         }
+        // Examine the text in the response
         response.json().then((responseData) => {
           const { data } = responseData;
 
           that.setState({
             stockList: data,
-            fetchError: false,
+            fetchError: data.length !== 0 ? false : true,
           });
         });
       }
@@ -67,7 +68,7 @@ export default class StockData extends Component {
   }
 
   render() {
-    const { inputDate, stockList } = this.state;
+    const { inputDate, stockList, fetchError } = this.state;
 
     return (
       <div className="layout-column align-items-center mt-50">
@@ -91,13 +92,14 @@ export default class StockData extends Component {
           </button>
         </section>
 
-        {(stockList.length !== 0)
-          ? <ul className="mt-50 slide-up-fade-in styled" id="stockData" data-testid="stock-data" >
+        {(stockList.length !== 0) &&
+          <ul className="mt-50 slide-up-fade-in styled" id="stockData" data-testid="stock-data" >
             {this.renderList()}
           </ul>
-          : <div data-testid="no-result">No Results Found</div>
         }
-      <div className="mt-50 slide-up-fade-in" id="no-result" data-testid="no-result"></div>
+        {fetchError &&
+          <div data-testid="no-result">No Results Found</div>
+        }
       </div>
     );
   }
