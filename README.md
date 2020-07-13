@@ -1,14 +1,3 @@
-## Note
-Checkout the repository.
-
-## Useful commands below-
-1- npm install
-
-2- npm start
-
-3- npm test
-
-
 # StocksData
 
 ## API to hit
@@ -27,3 +16,15 @@ Checkout the repository.
 
 In case of no results render below div
 `<div data-testid="no-result">No Results Found</div>`
+
+
+
+# Note
+Checkout the repository.
+
+## Useful commands below-
+1- npm install
+
+2- npm start
+
+3- npm test
