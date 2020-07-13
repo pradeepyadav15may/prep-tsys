@@ -1,3 +1,12 @@
+## Note
+Checkout the repository.
+
+## Useful commands below-
+1- npm install
+2- npm start
+3- npm test
+
+
 # StocksData
 
 ## API to hit
